@@ -55,6 +55,18 @@ The following operations are implemented:
   ```sql
   CALL add_supplier('SUP123', 'MediSupply Inc.', '123 Health Blvd.', '09171234567', '123-4567');
 
+#### `submit_requisition_with_items(p_ward_id INTEGER,p_staff_id INTEGER,p_requisition_date DATE,p_drugs INTEGER[][2],p_supplies INTEGER[][2],p_delivery_date DATE DEFAULT NULL)`
+- Adds a new requisition to the system.
+- **Example Call:**
+  ```sql
+  CALL submit_requisition_with_items(
+    1,                                -- ward_id
+    2,                                -- staff_id
+    '2025-05-29',                     -- requisition_date
+    ARRAY[[1, 10], [3, 5]],           -- p_drugs (drug_id, quantity)
+    ARRAY[[2, 20]],                   -- p_supplies (item_id, quantity)
+    '2025-06-01';                      -- delivery_date)
+
 ### 🔍 Views
 
 #### `view_staff_ward_allocation`
@@ -80,6 +92,12 @@ The following operations are implemented:
 - **Example Call:**
   ```sql
   SELECT * FROM supplies_by_ward WHERE ward_id = 1;
+
+#### `view_full_requisitions`
+- Displays requisitions.
+- **Example Call:**
+  ```sql
+  SELECT * FROM view_full_requisitions ORDER BY requisition_date DESC;
 
 ### 🔍 XML
 
