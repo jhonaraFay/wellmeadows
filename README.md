@@ -20,6 +20,18 @@ The following operations are implemented:
   ```sql
   SELECT * FROM get_medications_by_patient(1);
 
+  #### `submit_requisition_with_items(p_ward_id INTEGER,p_staff_id INTEGER,p_requisition_date DATE,p_drugs INTEGER[][2],p_supplies INTEGER[][2],p_delivery_date DATE DEFAULT NULL)`
+- Adds a new requisition to the system.
+- **Example Call:**
+  ```sql
+  SELECT submit_requisition_with_items(
+    1,                                -- ward_id
+    2,                                -- staff_id
+    '2025-05-29',                     -- requisition_date
+    ARRAY[[1, 10], [3, 5]],           -- p_drugs (drug_id, quantity)
+    NULL,                             -- p_supplies (item_id, quantity)
+    '2025-06-01');                     -- delivery_date)
+
 ### 🔍 Procedures
 
 #### `add_or_update_staff(p_staff_number VARCHAR(10),p_first_name VARCHAR(50),p_last_name VARCHAR(50),p_addressTEXT,p_telephone VARCHAR(20),p_date_of_birth DATE,p_sex CHAR(1),p_nin VARCHAR(15),p_position VARCHAR(50),p_current_salary DECIMAL(10,2),p_salary_scale VARCHAR(20),p_payment_type CHAR(1),p_contract_type CHAR(1),p_hours_per_week DECIMAL(5,2))`
@@ -55,17 +67,6 @@ The following operations are implemented:
   ```sql
   CALL add_supplier('SUP123', 'MediSupply Inc.', '123 Health Blvd.', '09171234567', '123-4567');
 
-#### `submit_requisition_with_items(p_ward_id INTEGER,p_staff_id INTEGER,p_requisition_date DATE,p_drugs INTEGER[][2],p_supplies INTEGER[][2],p_delivery_date DATE DEFAULT NULL)`
-- Adds a new requisition to the system.
-- **Example Call:**
-  ```sql
-  CALL submit_requisition_with_items(
-    1,                                -- ward_id
-    2,                                -- staff_id
-    '2025-05-29',                     -- requisition_date
-    ARRAY[[1, 10], [3, 5]],           -- p_drugs (drug_id, quantity)
-    NULL,                             -- p_supplies (item_id, quantity)
-    '2025-06-01');                     -- delivery_date)
 
 ### 🔍 Views
 
