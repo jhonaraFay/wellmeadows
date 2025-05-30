@@ -20,7 +20,7 @@ The following operations are implemented:
   ```sql
   SELECT * FROM get_medications_by_patient(1);
 
-  #### `submit_requisition_with_items(p_ward_id INTEGER,p_staff_id INTEGER,p_requisition_date DATE,p_drugs INTEGER[][2],p_supplies INTEGER[][2],p_delivery_date DATE DEFAULT NULL)`
+#### `submit_requisition_with_items(p_ward_id INTEGER,p_staff_id INTEGER,p_requisition_date DATE,p_drugs INTEGER[][2],p_supplies INTEGER[][2],p_delivery_date DATE DEFAULT NULL)`
 - Adds a new requisition to the system.
 - **Example Call:**
   ```sql
