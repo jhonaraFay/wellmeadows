@@ -59,7 +59,7 @@ The following operations are implemented:
 - Adds a new requisition to the system.
 - **Example Call:**
   ```sql
-  SELECT submit_requisition_with_items(
+  CALL submit_requisition_with_items(
     1,                                -- ward_id
     2,                                -- staff_id
     '2025-05-29',                     -- requisition_date
