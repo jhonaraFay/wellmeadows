@@ -65,7 +65,7 @@ The following operations are implemented:
     '2025-05-29',                     -- requisition_date
     ARRAY[[1, 10], [3, 5]],           -- p_drugs (drug_id, quantity)
     NULL,                             -- p_supplies (item_id, quantity)
-    '2025-06-01';                     -- delivery_date)
+    '2025-06-01');                     -- delivery_date)
 
 ### 🔍 Views
 
