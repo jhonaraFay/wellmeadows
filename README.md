@@ -59,13 +59,13 @@ The following operations are implemented:
 - Adds a new requisition to the system.
 - **Example Call:**
   ```sql
-  CALL submit_requisition_with_items(
+  SELECT submit_requisition_with_items(
     1,                                -- ward_id
     2,                                -- staff_id
     '2025-05-29',                     -- requisition_date
     ARRAY[[1, 10], [3, 5]],           -- p_drugs (drug_id, quantity)
-    ARRAY[[2, 20]],                   -- p_supplies (item_id, quantity)
-    '2025-06-01';                      -- delivery_date)
+    NULL,                             -- p_supplies (item_id, quantity)
+    '2025-06-01';                     -- delivery_date)
 
 ### 🔍 Views
 
